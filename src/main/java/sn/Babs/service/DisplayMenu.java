@@ -77,7 +77,7 @@ public class DisplayMenu {
                     int idClasse = scanner.nextInt();
                     if(idClasse == 1){
                         System.out.println("Les élèves de la classe 6emeA:");
-                        Eleve[] eleves = eleveRepository.getAllEleve();
+                        Eleve[] eleves = eleveRepository.getAllEleve6emeA();
                         for (int i=0;i<eleves.length;i++){
                             Eleve eleve = eleves[i];
                             System.out.println(String.format("> %S %S", eleve.getNom(),eleve.getPrenom()));

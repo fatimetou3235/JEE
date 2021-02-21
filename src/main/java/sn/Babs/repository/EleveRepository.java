@@ -4,7 +4,7 @@ import sn.Babs.domain.Classe;
 import sn.Babs.domain.Eleve;
 
 public class EleveRepository {
-    public Eleve[] getAllEleve(){
+    public Eleve[] getAllEleve6emeA(){
         Classe classe = new Classe(1,"6emeA");
         return new Eleve[]{
                 new Eleve(1,"NDIAYE","Babacar","07/10/1995",classe),
