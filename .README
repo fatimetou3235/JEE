@@ -1,0 +1,21 @@
+DESCRIPTION
+Platforme pour la gestion d'un établissement scolaire avec comme
+acteurs :Administration,Professeurs,Eleves,Parents.
+Il permet à l'administration de gerer leur établissements
+aux professeurs de programmer et noter leurs évalutions
+aux parents de voir les notes de leur enfants
+
+PROFILS UTILISATEUR
+Admin,Prof,Parent
+
+FONCTIONNALITES/PROFIL
+Bloquer un prof(Admin)
+Faire une inscription(Admin)
+Ajouter une classe(Admin)
+Ajouter une matiere(Admin)
+Ajouter un prof(Admin)
+Attribuer un cours à un prof(Prof)
+Programmer un devoir(Prof)
+Noter un devoir(Prof)
+Consulter la note d'un éléve(Admin,Prof,Parent)
+Creer un compte(Parent) 
