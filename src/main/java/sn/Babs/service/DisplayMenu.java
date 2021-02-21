@@ -1,7 +1,9 @@
 package sn.Babs.service;
 
 import sn.Babs.domain.Classe;
+import sn.Babs.domain.Eleve;
 import sn.Babs.repository.ClasseRepository;
+import sn.Babs.repository.EleveRepository;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -50,7 +52,9 @@ public class DisplayMenu {
     public void showAdminMenu(){
         int choice;
         ClasseRepository classeRepository = new ClasseRepository();
+        EleveRepository eleveRepository = new EleveRepository();
         Classe[] classes = classeRepository.getAll();
+
         do{
             System.out.println("Bienvenue Admin!!");
             System.out.println("1-Afficher les classes");
@@ -69,12 +73,22 @@ public class DisplayMenu {
                         Classe classe = classes[i];
                         System.out.println(String.format("> %S %S", classe.getId(),classe.getLibelle()));
                     }
+                    System.out.println("Choissisez une classe pour voir les élèves:");
+                    int idClasse = scanner.nextInt();
+                    if(idClasse == 1){
+                        System.out.println("Les élèves de la classe 6emeA:");
+                        Eleve[] eleves = eleveRepository.getAllEleve();
+                        for (int i=0;i<eleves.length;i++){
+                            Eleve eleve = eleves[i];
+                            System.out.println(String.format("> %S %S", eleve.getNom(),eleve.getPrenom()));
+                        }
+                    }
                     break;
                 case 2:
-                    // Perform "encrypt number" case.
+                    //
                     break;
                 case 3:
-                    // Perform "decrypt number" case.
+                    //
                     break;
 
                 default: System.out.println("entrez un choix entre 1 et 5"); break;
