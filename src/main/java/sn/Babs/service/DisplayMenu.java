@@ -6,8 +6,10 @@ import sn.Babs.repository.ClasseRepository;
 import sn.Babs.repository.EleveRepository;
 import sn.Babs.repository.ram.ArrayBasedClasseRepository;
 import sn.Babs.repository.ram.ArrayBasedEleveRepository;
+import sn.Babs.repository.ram.ListBasedClasseRepository;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class DisplayMenu {
@@ -54,9 +56,10 @@ public class DisplayMenu {
     public void showAdminMenu(){
         int choice;
         ArrayBasedClasseRepository arrayBasedClasseRepository  = new ArrayBasedClasseRepository();
+        ListBasedClasseRepository listBasedClasseRepository = new ListBasedClasseRepository();
         ArrayBasedEleveRepository arrayBasedEleveRepository = new ArrayBasedEleveRepository();
         Classe[] classes = arrayBasedClasseRepository.getAll();
-
+        List<Classe> lClasses= listBasedClasseRepository.PrintAllClasse();
         do{
             System.out.println("Bienvenue Admin!!");
             System.out.println("1-Afficher les classes");
@@ -71,9 +74,16 @@ public class DisplayMenu {
             switch (choice) {
                 case 1:
                     System.out.println("Les classes de votre établissements:");
-                    for (int i=0;i<classes.length;i++){
-                        Classe classe = classes[i];
-                        System.out.println(String.format("> %S %S", classe.getId(),classe.getLibelle()));
+                    //Données statiques
+                    // for (int i=0;i<classes.length;i++){
+                    //     Classe classe = classes[i];
+                    //     System.out.println(String.format("> %S %S", classe.getId(),classe.getLibelle()));
+                    // }
+                    //lClasses.forEach(cl);
+
+                    //Using the database
+                    for (Classe cl : lClasses) {
+                        System.out.println(String.format("> %S %S", cl.getId(),cl.getLibelle()));
                     }
                     System.out.println("Choissisez une classe pour voir les élèves:");
                     int idClasse = scanner.nextInt();
