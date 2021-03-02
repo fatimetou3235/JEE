@@ -4,6 +4,8 @@ import sn.Babs.domain.Classe;
 import sn.Babs.domain.Eleve;
 import sn.Babs.repository.ClasseRepository;
 import sn.Babs.repository.EleveRepository;
+import sn.Babs.repository.ram.ArrayBasedClasseRepository;
+import sn.Babs.repository.ram.ArrayBasedEleveRepository;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -51,9 +53,9 @@ public class DisplayMenu {
      */
     public void showAdminMenu(){
         int choice;
-        ClasseRepository classeRepository = new ClasseRepository();
-        EleveRepository eleveRepository = new EleveRepository();
-        Classe[] classes = classeRepository.getAll();
+        ArrayBasedClasseRepository arrayBasedClasseRepository  = new ArrayBasedClasseRepository();
+        ArrayBasedEleveRepository arrayBasedEleveRepository = new ArrayBasedEleveRepository();
+        Classe[] classes = arrayBasedClasseRepository.getAll();
 
         do{
             System.out.println("Bienvenue Admin!!");
@@ -77,7 +79,7 @@ public class DisplayMenu {
                     int idClasse = scanner.nextInt();
                     if(idClasse == 1){
                         System.out.println("Les élèves de la classe 6emeA:");
-                        Eleve[] eleves = eleveRepository.getAllEleve6emeA();
+                        Eleve[] eleves = arrayBasedEleveRepository.getAllEleve6emeA();
                         for (int i=0;i<eleves.length;i++){
                             Eleve eleve = eleves[i];
                             System.out.println(String.format("> %S %S", eleve.getNom(),eleve.getPrenom()));
