@@ -1,13 +1,13 @@
-package sn.Babs.domain;
+package sn.Isi.domain;
 
-public class Classe {
+public class Categorie {
     private int id;
     private String libelle;
 
-    public Classe() {
+    public Categorie() {
     }
 
-    public Classe(int id, String libelle) {
+    public Categorie(int id, String libelle) {
         this.id = id;
         this.libelle = libelle;
     }

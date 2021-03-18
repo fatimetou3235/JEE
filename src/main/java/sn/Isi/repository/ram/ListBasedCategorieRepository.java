@@ -1,28 +1,28 @@
-package sn.Babs.repository.ram;
+package sn.Isi.repository.ram;
 
-import sn.Babs.domain.Classe;
-import sn.Babs.repository.ClasseRepository;
-import sn.Babs.service.DatabaseConn;
+import sn.Isi.domain.Categorie;
+import sn.Isi.repository.CategorieRepository;
+import sn.Isi.service.DatabaseConn;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-public class ListBasedClasseRepository implements ClasseRepository {
+public class ListBasedCategorieRepository implements CategorieRepository {
     
-    public List<Classe> PrintAllClasse(){
+    public List<Categorie> PrintAllClasse(){
         DatabaseConn databaseConn = new DatabaseConn();
         Statement st;
         final Connection conx;
         conx=databaseConn.getConnection();
-         List<Classe> lClasses= new ArrayList<Classe>();
+         List<Categorie> lClasses= new ArrayList<Categorie>();
         String sql="select * from classe";
         try {
             st=conx.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                Classe cl = new Classe();
+                Categorie cl = new Categorie();
                 cl.setId(rs.getInt("id"));
                 cl.setLibelle(rs.getString("libelle"));
                 lClasses.add(cl); 
@@ -34,7 +34,7 @@ public class ListBasedClasseRepository implements ClasseRepository {
         return lClasses;
     }
 
-    public Classe[] getAll() {
+    public Categorie[] getAll() {
         // TODO Auto-generated method stub
         return null;
     }

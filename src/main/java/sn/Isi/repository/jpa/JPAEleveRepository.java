@@ -1,4 +1,4 @@
-package sn.Babs.repository.jpa;
+package sn.Isi.repository.jpa;
 
 public class JPAEleveRepository {
     

@@ -1,4 +1,4 @@
-package sn.Babs.repository.ram;
+package sn.Isi.repository.ram;
 
 public class ListBasedProfesseurRepository {
     

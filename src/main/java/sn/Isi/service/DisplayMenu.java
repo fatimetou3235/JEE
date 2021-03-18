@@ -1,14 +1,11 @@
-package sn.Babs.service;
+package sn.Isi.service;
 
-import sn.Babs.domain.Classe;
-import sn.Babs.domain.Eleve;
-import sn.Babs.repository.ClasseRepository;
-import sn.Babs.repository.EleveRepository;
-import sn.Babs.repository.ram.ArrayBasedClasseRepository;
-import sn.Babs.repository.ram.ArrayBasedEleveRepository;
-import sn.Babs.repository.ram.ListBasedClasseRepository;
+import sn.Isi.domain.Categorie;
+import sn.Isi.domain.Produit;
+import sn.Isi.repository.ram.ArrayBasedCategorieRepository;
+import sn.Isi.repository.ram.ArrayBasedProduitRepository;
+import sn.Isi.repository.ram.ListBasedCategorieRepository;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,10 +18,10 @@ public class DisplayMenu {
         boolean arret = false;
         while (!arret){
 
-            System.out.println("Bienvenue sur la platforme de gestion de votre établissement scolaire!!");
+            System.out.println("Bienvenue sur la platforme de gestion de gestion de stock et approvisionnement!!");
             System.out.println("1-Admin");
-            System.out.println("2-Prof");
-            System.out.println("3-Parent");
+            System.out.println("2-codification");
+            System.out.println("3-Approvisionnement");
             System.out.println("4-Quitter");
             System.out.println("Veuillez choisir un profil pour continuer:");
             Scanner scanner = new Scanner(System.in);
@@ -35,10 +32,10 @@ public class DisplayMenu {
                     showAdminMenu();
                     break;
                 case 2:
-                    //Menu Prof
+                    //Menu Codification
                     break;
                 case 3:
-                    // Menu Parent
+                    // Menu Approvisionnement
                     break;
                 case 4: arret = true; break;
 
@@ -55,17 +52,17 @@ public class DisplayMenu {
      */
     public void showAdminMenu(){
         int choice;
-        ArrayBasedClasseRepository arrayBasedClasseRepository  = new ArrayBasedClasseRepository();
-        ListBasedClasseRepository listBasedClasseRepository = new ListBasedClasseRepository();
-        ArrayBasedEleveRepository arrayBasedEleveRepository = new ArrayBasedEleveRepository();
-        Classe[] classes = arrayBasedClasseRepository.getAll();
-        List<Classe> lClasses= listBasedClasseRepository.PrintAllClasse();
+        ArrayBasedCategorieRepository arrayBasedCategorieRepository  = new ArrayBasedCategorieRepository();
+        ListBasedCategorieRepository listBasedCategorieRepository = new ListBasedCategorieRepository();
+        ArrayBasedProduitRepository arrayBasedProduitRepository = new ArrayBasedProduitRepository();
+        Categorie[] categories = arrayBasedCategorieRepository.getAll();
+        List<Categorie> lCategories= listBasedCategorieRepository.PrintAllClasse();
         do{
             System.out.println("Bienvenue Admin!!");
-            System.out.println("1-Afficher les classes");
-            System.out.println("2-Afficher les matieres");
-            System.out.println("3-Faire une inscription");
-            System.out.println("4-Ajouter un prof");
+            System.out.println("1-Afficher les categories");
+            System.out.println("2-Afficher les produits");
+            System.out.println("3-Faire une vente");
+            System.out.println("4-Ajouter un fournisseur");
             System.out.println("5-Quitter");
             System.out.println("Veuillez choisir une option pour continuer:");
             Scanner scanner = new Scanner(System.in);
@@ -73,26 +70,19 @@ public class DisplayMenu {
             //clearConsole();
             switch (choice) {
                 case 1:
-                    System.out.println("Les classes de votre établissements:");
-                    //Données statiques
-                    // for (int i=0;i<classes.length;i++){
-                    //     Classe classe = classes[i];
-                    //     System.out.println(String.format("> %S %S", classe.getId(),classe.getLibelle()));
-                    // }
-                    //lClasses.forEach(cl);
+                    System.out.println("Les categories disponible:");
 
-                    //Using the database
-                    for (Classe cl : lClasses) {
+                    for (Categorie cl : lCategories) {
                         System.out.println(String.format("> %S %S", cl.getId(),cl.getLibelle()));
                     }
-                    System.out.println("Choissisez une classe pour voir les élèves:");
+                    System.out.println("Choissisez une categorie pour voir les élèves:");
                     int idClasse = scanner.nextInt();
                     if(idClasse == 1){
-                        System.out.println("Les élèves de la classe 6emeA:");
-                        Eleve[] eleves = arrayBasedEleveRepository.getAllEleve6emeA();
-                        for (int i=0;i<eleves.length;i++){
-                            Eleve eleve = eleves[i];
-                            System.out.println(String.format("> %S %S", eleve.getNom(),eleve.getPrenom()));
+                        System.out.println("Les produits de la categorie alimentaire:");
+                        Produit[] produits = arrayBasedProduitRepository.getAll();
+                        for (int i = 0; i< produits.length; i++){
+                            Produit produit = produits[i];
+                            System.out.println(String.format("> %S %S", produit.getLibelle(), produit.getPrix()));
                         }
                     }
                     break;

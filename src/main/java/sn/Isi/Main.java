@@ -1,6 +1,6 @@
-package sn.Babs;
+package sn.Isi;
 
-import sn.Babs.service.DisplayMenu;
+import sn.Isi.service.DisplayMenu;
 
 public class Main {
     public static void main(String[] args) {

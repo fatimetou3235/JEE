@@ -2,7 +2,7 @@
 # Project Specific
 ######################
 /src/main/webapp/content/css/main.css
-/target/classes/static/**
+/target/categories/static/**
 /src/test/javascript/coverage/
 
 ######################
@@ -63,7 +63,7 @@ local.properties
 *.ipr
 *.ids
 *.orig
-classes/
+categories/
 out/
 
 ######################

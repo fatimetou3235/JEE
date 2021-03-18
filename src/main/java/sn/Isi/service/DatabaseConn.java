@@ -1,4 +1,4 @@
-package sn.Babs.service;
+package sn.Isi.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ public class DatabaseConn {
     private final String server= "localhost";
      private final String username = "root";
      private final String password = ""; 
-     private final String bd = "gesschool_jee"; 
+     private final String bd = "gesappro";
      private final String url = ""
              + "jdbc:mysql://"+server+":3306/"+bd;
    private Connection conx;
